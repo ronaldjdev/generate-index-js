@@ -1,0 +1,26 @@
+{
+  "name": "vite-react-index-generate",
+  "version": "1.0.1",
+  "description": "Este repositorio está dedicado a la herramienta \"generate-index-js\", la cual es una utilidad que te permite generar automáticamente un archivo de índice para un directorio de archivos JavaScript.",
+  "main": "export.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronaldjdev/generate-index-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronaldjdev/generate-index-js/issues"
+  },
+  "homepage": "https://github.com/ronaldjdev/generate-index-js#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "readline": "^1.3.0",
+    "vite-jsconfig-paths": "^2.0.1"
+  }
+}
