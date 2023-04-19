@@ -1,9 +1,10 @@
 {
-  "name": "vite-react-index-generate",
+  "name": "react-component-indexer",
   "version": "1.0.1",
   "description": "Este repositorio está dedicado a la herramienta \"generate-index-js\", la cual es una utilidad que te permite generar automáticamente un archivo de índice para un directorio de archivos JavaScript.",
-  "main": "export.js",
+  "main": "src/export.js",
   "scripts": {
+    "index": "node src/export.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
