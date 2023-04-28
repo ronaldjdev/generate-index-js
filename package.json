@@ -1,6 +1,6 @@
 {
   "name": "react-component-indexer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Este repositorio está dedicado a la herramienta \"generate-index-js\", la cual es una utilidad que te permite generar automáticamente un archivo de índice para un directorio de archivos JavaScript.",
   "main": "src/export.js",
   "scripts": {
