@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ronaldjdev/generate-index-js.git"
+    "url": "git+https://github.com/ronaldjdev/react-component-indexer.git"
   },
   "keywords": [],
   "author": "",
