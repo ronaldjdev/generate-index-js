@@ -22,44 +22,45 @@ const getDirectories = source =>
     .filter(isDirectory)
 
 const traverseDirectory = dirPath => {
-  const components = []
-  const files = fs.readdirSync(dirPath)
-
-  files.forEach(file => {
-    const filePath = path.join(dirPath, file)
-
-    if (isDirectory(filePath)) {
-      components.push(...traverseDirectory(filePath))
-    }
-    if (filePath.endsWith('.jsx') || filePath.endsWith('.tsx')) {
-      const componentName = file.replace('.jsx', '') || file.replace('.tsx', '')
-      const componentPath =
-        filePath.replace('.jsx', '') || filePath.replace('.tsx', '')
-
-      let isDefaultExport = false // Inicializar la variable en falso
-      
-      const content = fs.readFileSync(filePath, 'utf8')
-      const lines = content.split('\n')
-      
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i].trim()
-        if (line.startsWith('export default ')) {
-          isDefaultExport = true // Si encuentra la exportación por defecto, setea la variable a verdadero
-          break // Sale del loop porque ya encontró la exportación por defecto
+      const components = []
+      const files = fs.readdirSync(dirPath)
+    
+      files.forEach(file => {
+        const filePath = path.join(dirPath, file)
+    
+        if (isDirectory(filePath)) {
+          components.push(...traverseDirectory(filePath))
         }
-      }
-
-      components.push({
-        name: componentName,
-        path: componentPath,
-        isDefaultExport, // Agregar la propiedad isDefaultExport al objeto
+        if (filePath.endsWith('.jsx') || filePath.endsWith('.tsx')) {
+          const componentName = file.replace('.jsx', '') || file.replace('.tsx', '')
+          const componentPath =
+            filePath.replace('.jsx', '') || filePath.replace('.tsx', '')
+    
+          let isDefaultExport = false // Inicializar la variable en falso
+          
+          const content = fs.readFileSync(filePath, 'utf8')
+          const lines = content.split('\n')
+          
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim()
+            if (line.startsWith('export default ')) {
+              isDefaultExport = true // Si encuentra la exportación por defecto, setea la variable a verdadero
+              break // Sale del loop porque ya encontró la exportación por defecto
+            }
+          }
+    
+          components.push({
+            name: componentName,
+            path: componentPath,
+            isDefaultExport, // Agregar la propiedad isDefaultExport al objeto
+          })
+        }
+    
       })
+    
+      return components
     }
-
-  })
-
-  return components
-}
+    
 
 rl.question('Por favor, ingresa el nombre de la carpeta a procesar: ', dir => {
   const components = traverseDirectory(`./src/${dir}`)
